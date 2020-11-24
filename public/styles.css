@@ -1,0 +1,140 @@
+  
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(-45deg, #df7bce, #e4844c);
+      background-size: 400% 400%;
+      animation: gradient 7s ease infinite;
+      color: #000000;
+  }
+  
+  @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+  .heading {
+    text-align: center;
+  }
+
+  .box {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 5px;
+  }
+  
+  #heading {
+    background-color: #000503;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .item {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+  }
+  
+  .item:last-child {
+    border-bottom: 0;
+  }
+  
+  input:checked+p {
+    text-decoration: line-through;
+    text-decoration-color: #ff7300;
+  }
+
+  .form-signin {
+    width: 25%;
+    margin: 100px auto;
+    padding: 10px 10px;
+}
+
+.form-signin input {
+  background-color: #fff;
+}
+  
+  input[type="checkbox"] {
+    margin: 20px;
+  }
+  
+  p {
+    margin: 0;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 200;
+    color: #00204a;
+  }
+  
+  form {
+    text-align: center;
+    margin-left: 20px;
+  }
+  
+  .bt {
+    min-height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #000503;
+    color: #fff;
+    font-size: 30px;
+    padding-bottom: 6px;
+    border-width: 0;
+  }
+  
+  .bt:hover {
+    cursor: pointer;
+  } 
+  
+  .newItem {
+    text-align: center;
+    height: 60px;
+    top: 10px;
+    border: none;
+    font-size: 20px;
+    font-weight: 200;
+    width: 313px;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 #000000;
+  }
+  input[type="password"]:focus {
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 #000000;
+  }
+  
+  ::placeholder {
+    color: grey;
+    opacity: 1;
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+  .left-text {
+    text-align: left;
+  }
+
+  .margin {
+    margin-top: 20px;
+  }
+
+.expand {
+    transition: all 0.3s ease-in-out;
+}
+
+.expand:hover {
+    transform: scale(1.05);
+}

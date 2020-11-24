@@ -1,0 +1,17 @@
+<%- include("header") -%>
+
+<div class="login">
+<form action="/register" class="form-signin" method="post">
+    <h2> Register Your Account </h2>
+    <input type="text" name="username" class="form-control" placeholder="username" autocomplete="off" required>
+    <input type="password" name="password" class="form-control" placeholder="Create Password" required>
+    <input type="password" name="password1" class="form-control" placeholder="Confirm Password" required>
+    <button class="btn btn-lg btn-dark btn-block margin expand" type="submit">Register</button>
+    <p> <%= message %> </p>
+    <div class="center-text margin"> <h3> OR </h3> </div>
+    <div class="margin expand"> <a class="btn btn-lg btn-block  btn-dark" href="/auth/google"><img src="https://img.icons8.com/color/32/000000/google-logo.png"> Signup Using Google </a> </div>
+  </form>
+</div>
+
+
+<%- include("footer") -%>
