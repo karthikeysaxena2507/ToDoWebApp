@@ -93,7 +93,7 @@ app.get("/auth/google", passport.authenticate("google", {
  })
 );
 
-app.get("/auth/google/todo", passport.authenticate("google", {
+app.get("/todo-karthikey/auth/google/todo", passport.authenticate("google", {
     failureRedirect: "/login"
     }), function(req, res) {
         res.redirect("/"+req.user.username);
