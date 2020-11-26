@@ -6,8 +6,8 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const passportLocalMongoose = require("passport-local-mongoose");
-// const GoogleStrategy = require("passport-google-oauth20").Strategy;
-// const findOrCreate = require("mongoose-findorcreate");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 
@@ -64,22 +64,22 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.CLIENT_ID,
-//     clientSecret: process.env.CLIENT_SECRET,
-//     callbackURL: "http://localhost:3000/auth/google/todo",
-//     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-//   },
-//   function(accessToken, refreshToken, profile, cb) {
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "https://todo-karthikey.herokuapp.com/auth/google/todo",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
 
-//     User.findOrCreate( { 
-//         googleId: profile.id,
-//         username: profile._json.given_name
-//     }, function(err, user) {
-//         return cb(err, user);
-//     });
-//   }
-// ));
+    User.findOrCreate( { 
+        googleId: profile.id,
+        username: profile._json.given_name
+    }, function(err, user) {
+        return cb(err, user);
+    });
+  }
+));
 
 let defaultItem = new Item({
     content: "Add items to the list by clicking on + and delete by clicking on corresponding checkbox"
@@ -89,16 +89,16 @@ app.get("/", function(req, res) {
     res.render("home");
 });
 
-// app.get("/auth/google", passport.authenticate("google", { 
-//     scope: ["profile"]
-//  })
-// );
+app.get("/auth/google", passport.authenticate("google", { 
+    scope: ["profile"]
+ })
+);
 
-// app.get("/auth/google/todo", passport.authenticate("google", {
-//     failureRedirect: "/login"
-//     }), function(req, res) {
-//         res.redirect("/"+req.user.username);
-// });
+app.get("/auth/google/todo", passport.authenticate("google", {
+    failureRedirect: "/login"
+    }), function(req, res) {
+        res.redirect("/"+req.user.username);
+});
 
 app.get("/login/:message", function(req, res) {
     res.render("login", {
